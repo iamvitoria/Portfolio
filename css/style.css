@@ -11,7 +11,7 @@ body {
     background-color: #fff;
 }
 
-/* HEADER */
+/* Animação para a barra de navegação surgir de cima */
 header {
     background: black;
     color: white;
@@ -19,10 +19,27 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    transform: translateY(-100%); /* Começa fora da tela, acima */
+    opacity: 0; /* Invisível inicialmente */
+    animation: slide-down 1s ease-out forwards;
+}
+
+/* Definição da animação */
+@keyframes slide-down {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 /* LOGO */
 .logo {
+    margin-left: 80px;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
@@ -50,10 +67,8 @@ nav a:hover {
 
 /* BANNER */
 .banner {
-    margin-top: 20px;
-    margin-left: 70px;
-    width: 90%;
-    height: 300px;
+    width: 100%;
+    height: 400px;
     overflow: hidden;
     opacity: 0;
     animation: banner-slide 1s ease-out forwards;
@@ -200,4 +215,42 @@ a {
 a:focus, a:hover {
     outline: none; /* Remove a borda do foco */
     text-decoration: none; /* Remove o sublinhado ao passar o mouse */
+}
+
+/* ABOUT PAGE */
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px; /* Espaço entre texto e imagem */
+    padding: 50px;
+}
+
+.about-text {
+    width: 30%;
+    text-align: right;
+}
+
+.about-image {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text, .about-image {
+        width: 100%;
+    }
 }
