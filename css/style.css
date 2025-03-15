@@ -421,7 +421,7 @@ h1 {
     margin-top: 20px;
     display: flex;
     justify-content: right;
-    gap: 15px;
+    gap: 30px;
     opacity: 0;
     animation: fadeInUp 1s ease-out forwards;
     animation-delay: 0.4s; /* Aparecem um pouco depois do texto */
