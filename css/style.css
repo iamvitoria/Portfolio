@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background-color: #fff;
+}
+
+/* HEADER */
+header {
+    background: black;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LOGO */
+.logo {
+    margin-left: 50px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.logo:hover {
+    color: grey;
+    transform: scale(1.1);
+}
+
+/* MENU */
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+    color: grey;
+    transform: scale(1.1);
+}
+
+/* Animação para o banner */
+.banner {
+    margin-top: 20px;
+    margin-left: 70px;
+    width: 90%;
+    height: 300px;
+    overflow: hidden;
+    opacity: 0; /* Inicialmente invisível */
+    animation: banner-slide 1s ease-out forwards;
+}
+
+@keyframes banner-slide {
+    0% {
+        transform: translateY(50px); /* Inicialmente deslocado para baixo */
+        opacity: 0; /* Invisível no início */
+    }
+    100% {
+        transform: translateY(0); /* Chega à posição original */
+        opacity: 1; /* Torna-se visível */
+    }
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Animação para os textos */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    opacity: 0;
+    animation: container-fade 1s ease-out 0.5s forwards; /* Animação de fade-in com delay */
+}
+
+@keyframes container-fade {
+    0% {
+        opacity: 0; /* Inicialmente invisível */
+    }
+    100% {
+        opacity: 1; /* Torna-se visível */
+    }
+}
+
+/* Textos das seções */
+.left, .right {
+    width: 50%;
+    padding: 30px;
+    opacity: 0;
+    animation: text-fade 1s ease-out 1s forwards; /* Animação de fade-in com delay */
+}
+
+.left {
+    text-align: right;
+}
+
+.right {
+    text-align: left;
+}
+
+@keyframes text-fade {
+    0% {
+        opacity: 0; /* Inicialmente invisível */
+    }
+    100% {
+        opacity: 1; /* Torna-se visível */
+    }
+}
+
+/* Ajuste de timing para as seções */
+.left {
+    animation-delay: 1s; /* Delay para o lado esquerdo */
+}
+
+.right {
+    animation-delay: 1.5s; /* Delay para o lado direito */
+}
+
+/* Textos */
+h1 {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.designer, .coder {
+    color: black;
+}
