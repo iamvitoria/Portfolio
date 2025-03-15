@@ -44,25 +44,41 @@ header {
     font-weight: bold;
     cursor: pointer;
     transition: transform 0.3s ease, color 0.3s ease;
+    text-decoration: none;
 }
 
 .logo:hover {
     color: grey;
     transform: scale(1.1);
+    text-decoration: none;
+}
+
+/* Remover sublinhado do link da logo */
+.logo a {
+    text-decoration: none !important; /* Garante que o sublinhado seja removido */
 }
 
 /* MENU */
 nav a {
-    color: white;
-    text-decoration: none;
+    color: white; /* Garantir que a cor inicial seja branca */
+    text-decoration: none; /* Remove o sublinhado */
+    font-weight: bold;
     margin: 0 15px;
     font-size: 18px;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
+/* Para o hover nos links */
 nav a:hover {
-    color: grey;
-    transform: scale(1.1);
+    color: grey !important;/* Cor ao passar o mouse */
+    transform: scale(1.1); /* Efeito de aumento */
+    text-decoration: none; /* Garante que o hover não tenha sublinhado */
+}
+
+/* Para links visitados (mantém o mesmo estilo) */
+nav a:visited {
+    color: white; /* Mantém a cor original */
+    text-decoration: none; /* Garante que não tenha sublinhado */
 }
 
 /* BANNER */
@@ -153,88 +169,31 @@ h1 {
     color: black;
 }
 
-/* MEDIA QUERIES PARA DISPOSITIVOS MÓVEIS */
-
-/* Para telas menores que 768px (tablets e celulares) */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column; /* Empilha as seções verticalmente */
-        padding: 20px;
-    }
-
-    .left, .right {
-        width: 100%; /* Cada seção ocupa toda a largura */
-        text-align: center; /* Centraliza o texto */
-        padding: 15px;
-    }
-
-    h1 {
-        font-size: 32px; /* Reduz o tamanho do título */
-    }
-
-    .banner {
-        margin-left: 0; /* Remove a margem à esquerda */
-        height: 200px; /* Ajusta a altura do banner */
-    }
-}
-
-/* Para telas menores que 480px (celulares em modo retrato) */
-@media (max-width: 480px) {
-    header {
-        padding: 10px 20px; /* Ajusta o espaçamento do header */
-    }
-
-    .logo {
-        font-size: 22px; /* Diminui o tamanho do logo */
-    }
-
-    nav a {
-        font-size: 16px; /* Diminui o tamanho das opções de menu */
-        margin: 0 10px; /* Ajusta a margem */
-    }
-
-    .container {
-        padding: 10px; /* Ajusta o espaçamento da container */
-    }
-
-    h1 {
-        font-size: 28px; /* Ajusta o tamanho do título */
-    }
-
-    .banner {
-        height: 180px; /* Ajusta ainda mais a altura do banner */
-    }
-}
-
-/* Reset de estilo dos links */
-a {
-    color: inherit; /* Herda a cor do texto pai */
-    text-decoration: none; /* Remove o sublinhado do link */
-}
-
-a:focus, a:hover {
-    outline: none; /* Remove a borda do foco */
-    text-decoration: none; /* Remove o sublinhado ao passar o mouse */
-}
-
 /* ABOUT PAGE */
 .about-container {
     display: flex;
-    align-items: center;
+    align-items: center; /* Alinha verticalmente os itens no centro */
     justify-content: center;
-    gap: 40px; /* Espaço entre texto e imagem */
     padding: 50px;
+    opacity: 0; /* Inicialmente invisível */
+    animation: fadeIn 1s forwards; /* Animação de fade-in */
 }
 
 .about-text {
     width: 30%;
     text-align: right;
+    opacity: 0; /* Inicialmente invisível */
+    animation: slideIn 1s forwards; /* Animação de slide-in para o texto */
+    animation-delay: 0.5s; /* Delay para o texto aparecer depois da imagem */
 }
 
 .about-image {
-    width: 50%;
+    width: 30%; /* Tornando a imagem menor */
     display: flex;
-    justify-content: center;
+    margin-right: 200px;
+    justify-content: center; /* Alinha a imagem ao centro */
+    opacity: 0; /* Inicialmente invisível */
+    animation: slideIn 1s forwards; /* Animação de slide-in para a imagem */
 }
 
 .about-image img {
@@ -243,15 +202,24 @@ a:focus, a:hover {
     border-radius: 10px;
 }
 
-/* RESPONSIVIDADE */
-@media (max-width: 768px) {
-    .about-container {
-        flex-direction: column;
-        text-align: center;
+/* Animações */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
     }
+    100% {
+        opacity: 1;
+    }
+}
 
-    .about-text, .about-image {
-        width: 100%;
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(100px); /* A imagem e o texto começam à direita */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* Eles deslizam para suas posições originais */
     }
 }
 
@@ -327,77 +295,92 @@ a:focus, a:hover {
     transform: scale(1.05);
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .project-card {
-        width: 48%;
-        margin-bottom: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .project-card {
-        width: 100%;
-    }
-}
-
-/* Estilo geral para a página de contato */
+/* CONTACT PAGE */
 .contact-container {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
     padding: 50px;
-    text-align: center;
+    gap: 50px;
 }
 
+.contact-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px; /* Espaço entre a imagem e o texto */
+}
+
+/* Ajuste do texto */
 .contact-text {
-    margin-bottom: 40px;
+    width: 30%;
+    text-align: right;
 }
 
-.contact-text h1 {
-    font-size: 48px;
-    font-weight: bold;
-    margin-bottom: 15px;
+/* Ajuste da imagem */
+.contact-image {
+    width: 30%;
+    display: flex;
+    justify-content: left; /* Mantendo alinhado conforme o about-container */
 }
 
-.contact-text p {
-    font-size: 18px;
-    color: #555;
+.contact-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
 
-/* Estilo para o formulário */
-button {
-    padding: 12px 20px;
-    background-color: #333;
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #555;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .contact-form {
-        width: 90%;
-    }
-}
-
-/* Estilo para os ícones de redes sociais */
+/* Ícones de contato */
 .contact-icons {
     margin-top: 20px;
+    display: flex;
+    justify-content: right;
+    gap: 30px;
 }
 
 .social-icon {
-    font-size: 40px;
+    font-size: 50px;
     color: black;
-    margin: 0 15px;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .social-icon:hover {
     color: #555;
     transform: scale(1.1);
+}
+
+/* Animação de entrada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Aplicando animação ao texto */
+.contact-text {
+    width: 30%;
+    text-align: right;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.2s; /* Pequeno atraso para um efeito mais suave */
+}
+
+/* Aplicando animação aos ícones de contato */
+.contact-icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: right;
+    gap: 15px;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.4s; /* Aparecem um pouco depois do texto */
+}
+
+a:visited {
+    color: inherit; /* Mantém a cor original do link */
 }
