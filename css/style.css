@@ -268,6 +268,53 @@ h1 {
     margin-left: 10px;
 }
 
+/* Estilos para a nova seção de Skills */
+.skills {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #f8f8f8;
+}
+
+.skills h1 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: black;
+}
+
+.skills-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.skill-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 30px;
+    width: 250px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 50px;
+}
+
+.skill-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.skill-card p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Efeito de animação no hover */
+.skill-card:hover {
+    transform: scale(1.05); /* Aumenta o tamanho do card */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave */
+}
+
 /* Portfolio */
 .portfolio-container {
     text-align: center;
