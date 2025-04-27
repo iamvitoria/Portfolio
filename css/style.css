@@ -201,6 +201,73 @@ h1 {
     }
 }
 
+.testimonial {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Empilha título em cima */
+    padding: 50px 20px;
+}
+
+.testimonial-container {
+    width: 100%;
+    max-width: 600px;
+}
+
+.testimonial-container h1 {
+    font-size: 36px;
+    color: black;
+    margin-bottom: 30px;
+}
+
+.carousel {
+    position: relative;
+    background: white;
+    border-radius: 20px;
+    padding: 40px 60px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.carousel-wrapper {
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    transition: transform 0.5s ease;
+}
+
+.carousel-content {
+    display: none; /* esconde todos por padrão */
+}
+
+.carousel-content.active {
+    display: block; /* mostra só o ativo */
+}
+
+.carousel-button {
+    background: transparent;
+    border: none;
+    color: black;
+    font-size: 30px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.carousel-button:hover {
+    color: grey;
+}
+
+.carousel-button.left {
+    margin-right: 10px;
+}
+
+.carousel-button.right {
+    margin-left: 10px;
+}
+
 /* Portfolio */
 .portfolio-container {
     text-align: center;
